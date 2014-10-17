@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity"
+    android:weightSum="10"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:orientation="vertical"
+        android:id="@+id/leftLayout"
+        >
+
+        <LinearLayout
+            android:id="@+id/redWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/red"
+            android:orientation="horizontal"
+            android:weightSum="3"
+        >
+            <TextView
+                android:text="@string/AAA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:text="@string/BBB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:text="@string/CCC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="end"
+                />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/greenWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:background="@color/green"
+            android:text="@string/lipsum"
+            android:textSize="17dp"
+            />
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:src="@drawable/image"
+        android:adjustViewBounds="true"/>
+
+
+
+</LinearLayout>

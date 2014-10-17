@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    >
+
+    <!-- This can be done with only one view with background red,
+     but if we want the boxes to be different size we need to do it like below-->
+    <View
+        android:scaleType="fitCenter"
+        android:layout_height="200dp"
+        android:layout_width="125dp"
+        android:background="@color/red"/>
+    <View
+        android:scaleType="fitCenter"
+        android:layout_height="200dp"
+        android:layout_width="125dp"
+        android:layout_gravity="bottom"
+        android:background="@color/red"/>
+    <View
+        android:scaleType="fitCenter"
+        android:layout_height="200dp"
+        android:layout_width="125dp"
+        android:layout_gravity="right"
+        android:background="@color/red"/>
+    <View
+        android:scaleType="fitCenter"
+        android:layout_height="200dp"
+        android:layout_width="125dp"
+        android:layout_gravity="right|bottom"
+        android:background="@color/red"/>
+
+    <!-- For some devices to be rendered correctly -->
+    <View
+        android:scaleType="fitCenter"
+        android:layout_height="fill_parent"
+        android:layout_width="140dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/white"/>
+    <View
+        android:scaleType="fitCenter"
+        android:layout_height="140dp"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@color/white"/>
+
+    <View
+        android:scaleType="fitCenter"
+        android:layout_height="fill_parent"
+        android:layout_width="70dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/blue"/>
+
+    <View
+        android:scaleType="fitCenter"
+        android:layout_height="70dp"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@color/blue"/>
+</FrameLayout>
