@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainLayout"
+    tools:context=".MainActivity">
+
+    <ImageView android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bro_christmas"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+        android:id="@+id/imageHolder"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageHolder"
+        android:gravity="center_horizontal"
+        android:id="@+id/imageHolderPosition"
+        />
+
+</RelativeLayout>
