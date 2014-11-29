@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ExpenseList</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_button_text">Add</string>
+    <string name="label_hint">label</string>
+    <string name="price_hint">price</string>
+    <string name="warning_message">Are you sure that you want to permanently delete the selected item, you will never ever can get it back in your whole lifespan !</string>
+    <string name="positive_answer">Yes</string>
+    <string name="negative_answer">No</string>
+
+</resources>
