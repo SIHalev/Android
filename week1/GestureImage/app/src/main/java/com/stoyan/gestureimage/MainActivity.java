@@ -8,9 +8,6 @@ import android.app.Activity;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -44,6 +41,8 @@ public class MainActivity extends Activity {
         Button playButton = (Button) findViewById(R.id.playButton);
         image = (ImageView) findViewById(R.id.nyan);
 
+        View mainWindow = (View) findViewById(R.id.mainId);
+
         frameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +74,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        image.setOnTouchListener(new View.OnTouchListener() {
+        mainWindow.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 int pointersCount = event.getPointerCount();
@@ -84,8 +83,6 @@ public class MainActivity extends Activity {
                 int pointerIndex1 = event.findPointerIndex(pointerId1);
                 PointF finger1 = new PointF(event.getX(pointerIndex1), event.getY(pointerIndex1));
                 int maskedAction = event.getActionMasked();
-
-                Log.v("x", "" + v.getX());
 
                 if(pointersCount == 1) {
                     switch (maskedAction) {
@@ -102,8 +99,10 @@ public class MainActivity extends Activity {
 
                                 //v.setX(v.getX() + distanceX - v.getWidth());
                                 //v.setY(v.getY() + distanceY - v.getHeight());
-                                v.setTranslationX(v.getTranslationX() + distanceX);
-                                v.setTranslationY(v.getTranslationY() + distanceY);
+                                image.setTranslationX(image.getTranslationX() + distanceX);
+                                image.setTranslationY(image.getTranslationY() + distanceY);
+
+                                prevFinger1 = finger1;
                             }
 
                             break;
@@ -118,6 +117,7 @@ public class MainActivity extends Activity {
                 if (pointersCount == 2) {
                     int pointerId2 = event.getPointerId(1);
                     int pointerIndex2 = event.findPointerIndex(pointerId2);
+                    //PointF finger2 = new PointF(event.getX(pointerIndex2), event.getY(pointerIndex2));
                     PointF finger2 = new PointF(event.getX(pointerIndex2), event.getY(pointerIndex2));
 
                     switch (maskedAction) {
@@ -132,15 +132,14 @@ public class MainActivity extends Activity {
                             break;
                         }
                         case MotionEvent.ACTION_MOVE: {
+
                             currLineDistance = getDistance(finger1, finger2);
                             deltaDistance = currLineDistance / prevLineDistance;
 
-                            //Log.e("Angle", "" + angleBetweenLines(finger1, prevFinger1, finger2, prevFinger2));
+                            image.setRotation(image.getRotation() + (int) angleBetweenLines(finger1, prevFinger1, finger2, prevFinger2));
 
-                            v.setRotation(v.getRotation() + (float) angleBetweenLines(finger1, prevFinger1, finger2, prevFinger2));
-
-                            v.setScaleX(v.getScaleX() * deltaDistance);
-                            v.setScaleY(v.getScaleY() * deltaDistance);
+                            image.setScaleX(image.getScaleX() * deltaDistance);
+                            image.setScaleY(image.getScaleY() * deltaDistance);
 
                             /*
                             ImageView imageView = (ImageView) v;
@@ -148,6 +147,10 @@ public class MainActivity extends Activity {
                             imageView.setScaleType(ImageView.ScaleType.MATRIX);
                             matrix.postRotate((float) angleBetweenLines(finger1, prevFinger1, finger2, prevFinger2), pivX, pivY);
                             imageView.setImageMatrix(matrix);*/
+
+                            prevFinger1 = finger1;
+                            prevFinger2 = finger2;
+                            prevLineDistance = getDistance(finger1, finger2);
 
                             break;
                         }
