@@ -1,0 +1,59 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    style="@style/DarkTheme"
+    >
+
+    <EditText
+        style="@style/DarkTheme"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="username"
+        android:id="@+id/usernameTextView"/>
+
+    <EditText
+        style="@style/DarkTheme"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:id="@+id/emailTextView"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationGroup">
+
+        <RadioButton
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="FMI"
+            android:id="@+id/radioButton"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <RadioButton
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="TU"
+            android:id="@+id/radioButton2"
+            android:layout_below="@+id/radioButton"
+            android:layout_centerHorizontal="true" />
+
+        <RadioButton
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="TUES"
+            android:id="@+id/radioButton3"
+            android:layout_below="@+id/radioButton2"
+            android:layout_centerHorizontal="true" />
+
+    </RadioGroup>
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:id="@+id/sendButton"/>
+</LinearLayout>
